@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    font-family: system-ui;
+}
+
+body, html { height: 100%;}
+
+.site-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000814;
+    padding: 1rem;
+    h1 {
+        color: #ffc300;
+    }
+    a {
+        color: #ffffff;
+        text-decoration: none;
+        outline: #000814 solid 1px;
+        padding: 0.5rem;
+        font-weight: bold;
+    }
+    a:hover {
+        padding: 0.5rem;
+        color: #001d3d;
+        opacity: 0.7;
+        outline: #000000 solid 1px;
+        background-color: #ffc300;
+        border-radius: 8px;
+    }
+
+    .current {
+        padding: 0.5rem;
+        color: #001d3d;
+        outline: #000000 solid 1px;
+        background-color: #ffc300;
+        border-radius: 8px;
+    }
+}
+
+.site-main {
+    background-color: #e5e5e5;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    border: #000 solid 1px;
+    border-radius: 32px;
+}
+
+body {
+    background-color: #000814;
+}
+
+.content {
+    background-color: #000814;
+    padding: 1rem;
+    width: 25%;
+    height: fit-content;
+    border: #000 solid 1px;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    box-sizing: content-box;
+    h2 {
+        color: #ffc300;
+    }
+
+    .hformel {
+        padding-bottom: 0.5rem;
+    }
+
+    input {
+        border-radius: 8px;
+        width: 90%;
+        padding: 0.3rem;
+    }
+
+    label {
+        padding-top: 0.5rem;
+        padding-bottom: 0.1rem;
+    }
+
+    .formel {
+        font-size: 1.1rem;
+        color: #ffc300;
+    }
+
+    div {
+        display: inline-flex;
+        gap: 1rem;
+    }
+}
+
+.slider {
+    position: relative;
+    height: 80px;
+    width: 267px;
+    overflow: hidden;
+    text-decoration: none;
+    mask-image: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 89%, rgba(0,0,0,0) 100%);
+
+    a {
+        color: #000;
+    }
+
+    .a {
+        font-weight: bold;
+        position: absolute;
+        transition: top 1000ms ease-in-out;
+    }
+
+    .above {
+        top: -100%;
+        opacity: 0;
+    }
+
+    .onpoint{
+        top: 0px;
+    }
+
+    .below {
+        top: 100%;
+    }
+}
+
+.indexmain {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.threedobjekt {
+    display: flex;             
+    justify-content: center;   
+    align-items: center;                     
+    flex-grow: 1;
+    object-fit: contain;
+    min-width: min-content;
+
+    canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        background-color: #e5e5e5;
+    }
+}
+

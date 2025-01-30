@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometrierechner - Kugel</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="3dscript.js"></script>
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="navtitel">
+            <h1>Geometrierechner - Kugel</h1>
+        </div>
+        <div class="navcontent">
+            <a href="quader.html">Quader</a>
+            <a href="kugel.html" class="current">Kugel</a>
+            <a href="zylinder.html">Zylinder</a>
+            <a href="prisma.html">Prisma</a>
+            <a href="pyramide.html">Pyramide</a>
+        </div>
+    </nav>
+    <main class="site-main">
+    <div class="content">
+        <h2>Input</h2>
+        <label for="radius">Radius = r :</label><input type="number" min="0" placeholder="Radius" id="radius" oninput="spherer(); updatespherer()">
+        <label for="diamater">Durchmesser = d :</label><input type="number" min="0" placeholder="Durchmesser" id="diameter" oninput="sphered(); updatespherer()">
+        <label for="nachkomma">Nachkommastellen:</label><input type="number" min="0" max="12" placeholder="Nachkommastellen" id="nachkomma" oninput="spherer(); updatespherer()">
+    </div>
+    <div class="content">
+        <h2>Output</h2>
+        <label for="dsplyvkugel">Volumen:</label><input type="display" placeholder="Volumen" id="dsplyvkugel" readonly>
+        <label for="dsplyaokugel">Gesamtoberfläche:</label><input type="display" placeholder="Gesamtoberfläche" id="dsplyaokugel" readonly>
+    </div>
+    <div class="content">
+        <h2 class="hformel">Formeln</h2>
+        <div>
+            <p>Volumen: 
+                <p class="formel"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>V</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                      <mn>4</mn>
+                      <mn>3</mn>
+                    </mfrac>
+                    <mi>&#x3C0;</mi> <!-- π -->
+                    <mo>&#x22C5;</mo> <!-- Malzeichen -->
+                    <msup>
+                      <mi>r</mi>
+                      <mn>3</mn>
+                    </msup>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mi>&#x3C0;</mi> <!-- π -->
+                        <mn>6</mn>6
+                    </mfrac>
+                    <mo>&#x22C5;</mo> <!-- Malzeichen -->
+                    <msup>
+                        <mi>d</mi>
+                        <mn>3</mn>
+                    </msup>
+                  </math>
+                </p>
+            </p>
+        </div>
+        <div><p>Gesamtoberfläche: <p class="formel">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <msub>
+                    <mi>A</mi>
+                    <mi>O</mi>
+                </msub>
+                <mo>=</mo>
+                <mn>4</mn>
+                <mo>&#x22C5;</mo>
+                <mi>&#x3C0;</mi>
+                <mo>&#x22C5;</mo>
+                <msup>
+                    <mi>r</mi>
+                    <mn>2</mn>
+                </msup>
+                <mo>=</mo>
+                <mi>&#x3C0;</mi>
+                <mo>&#x22C5;</mo>
+                <msup>
+                    <mi>d</mi>
+                    <mn>2</mn>
+                </msup>
+            </math>
+                </p>
+            </p>
+        </div>
+    </div>
+    <div class="threedobjekt content" id="3dobjekt" data-shape="sphere">
+        <canvas id="Canvas"></canvas>
+    </div>
+    </main>
+</body>
+</html>

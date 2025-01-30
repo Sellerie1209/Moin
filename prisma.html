@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometrierechner - Prisma</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="3dscript.js"></script>
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="navtitel">
+            <h1>Geometrierechner - Prisma</h1>
+        </div>
+        <div class="navcontent">
+            <a href="quader.html">Quader</a>
+            <a href="kugel.html">Kugel</a>
+            <a href="zylinder.html">Zylinder</a>
+            <a href="prisma.html" class="current">Prisma</a>
+            <a href="pyramide.html">Pyramide</a>
+        </div>
+    </nav>
+    <main class="site-main">
+        <div class="content">
+            <h2>Input</h2>
+            <label for="height">Höhe = h :</label><input type="number" min="0" placeholder="Höhe" id="height" oninput="prisma(); updateprisma()">
+            <label for="site">Seitenlänge = s:</label><input type="number" min="0" placeholder="Seitenlänge" id="site" oninput="prisma(); updateprisma()">
+            <label for="sites">Seitenanzahl = n:</label><input type="number" min="3" placeholder="Seitenanzahl" id="sites" oninput="prisma(); updateprisma()">
+            <label for="nachkomma">Nachkommastellen:</label><input type="number" min="0" max="12" placeholder="Nachkommastellen" id="nachkomma" oninput="prisma()">
+        </div>
+        <div class="content">
+            <h2>Output</h2>
+            <label for="dsplyvprisma">Volumen:</label><input type="display" placeholder="Volumen" id="dsplyvprisma" readonly>
+            <label for="dsplyagprisma">Grundfläche:</label><input type="display" placeholder="Grundfläche" id="dsplyagprisma" readonly>
+            <label for="dsplyamprisma">Mantelfläche:</label><input type="display" placeholder="Mantelfläche" id="dsplyamprisma" readonly>
+            <label for="dsplyaoprisma">Gesamtoberfläche:</label><input type="display" placeholder="Gesamtoberfläche" id="dsplyaoprisma" readonly>
+        </div>
+        <div class="content">
+            <h2>Formeln</h2>
+            <div><p>Volumen: <p class="formel">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mi>V</mi>
+                    <mo>=</mo>
+                    <mi>h</mi>
+                    <mo>&#x22C5;</mo> <!-- Malzeichen -->
+                    <msub>
+                        <mi>A</mi>
+                        <mi>G</mi>
+                    </msub>
+                  </math>
+                    </p>
+                </p>
+            </div>
+            <div><p>Grundfläche: <p class="formel">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                        <mi>A</mi>
+                        <mi>G</mi>
+                    </msub>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mrow>
+                            <mi>n</mi>
+                            <mo>&#x22C5;</mo> <!-- Malzeichen -->
+                            <msup>
+                                <mi>s</mi>
+                                <mn>2</mn>
+                            </msup>
+                        </mrow>
+                        <mrow>
+                            <mn>4</mn>
+                            <mo>&#x22C5;</mo>
+                            <mo>tan</mo>
+                            <mo>(</mo>
+                            <mfrac>
+                                <mi>&#x3C0;</mi> <!-- π -->
+                                <mi>n</mi>
+                            </mfrac>
+                            <mo>)</mo>
+                        </mrow>
+                    </mfrac>
+                  </math>
+                    </p>
+                </p>
+            </div>
+            <div><p>Mantelfläche: <p class="formel">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                        <mi>A</mi>
+                        <mi>M</mi>
+                    </msub>
+                    <mo>=</mo>
+                    <mi>h</mi>
+                    <mo>&#x22C5;</mo> <!-- Malzeichen -->
+                    <mi>U</mi>
+                    <mo>=</mo>
+                    <mi>h</mi>
+                    <mo>&#x22C5;</mo> <!-- Malzeichen -->
+                    <mi>n</mi>
+                    <mo>&#x22C5;</mo> <!-- Malzeichen -->
+                    <mi>s</mi>
+                  </math>
+                    </p>
+                </p>
+            </div>
+            <div><p>Gesamtoberfläche: <p class="formel">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                        <mi>A</mi>
+                        <mi>O</mi>
+                    </msub>
+                    <mo>=</mo>
+                    <mn>2</mn>
+                    <mo>&#x22C5;</mo> <!-- Malzeichen -->
+                    <msub>
+                        <mi>A</mi>
+                        <mi>G</mi>
+                    </msub>
+                    <mo>+</mo> <!-- Malzeichen -->
+                    <msub>
+                        <mi>A</mi>
+                        <mi>M</mi>
+                    </msub>
+                  </math>
+                    </p>
+                </p>
+            </div>
+        </div>
+        <div class="threedobjekt content" id="3dobjekt" data-shape="prisma">
+            <canvas id="Canvas"></canvas>
+        </div>
+    </main>
+</body>
+</html>
